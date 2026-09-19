@@ -91,7 +91,7 @@ function add(add1, add2) {
   let numberOne = "";
   let numberTwo = "";
   let symbol = "";
-  return (secondScreen.value = total.toFixed(4));
+  return (secondScreen.value = Number(total.toFixed(4)));
 }
 
 function subtract(sub1, sub2) {
@@ -100,16 +100,16 @@ function subtract(sub1, sub2) {
   let numberOne = "";
   let numberTwo = "";
   let symbol = "";
-  return (secondScreen.value = total.toFixed(4));
+  return (secondScreen.value = Number(total.toFixed(4)));
 }
 
 function multiply(mul1, mul2) {
   firstScreen.value = "";
-  let totla = mul1 * mul2;
+  let total = mul1 * mul2;
   let numberOne = "";
   let numberTwo = "";
   let symbol = "";
-  return (secondScreen.value = total.toFixed(4));
+  return (secondScreen.value = Number(total.toFixed(4)));
 }
 
 function divide(div1, div2) {
@@ -121,7 +121,7 @@ function divide(div1, div2) {
   if (div1 === 0) {
     return (secondScreen.value = "");
   }
-  return (secondScreen.value = total.toFixed(4));
+  return (secondScreen.value = Number(total.toFixed(4)));
 }
 
 function operate() {
