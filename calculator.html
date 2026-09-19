@@ -3,26 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="../css/calculator.style.css" />
+    <link rel="stylesheet" type="text/css" href="calculator.style.css" />
     <title>Calculator</title>
-    <script src="../js/common.js" defer></script>
-    <script src="../js/calculator.js" defer></script>
+    <script src="calculator.js" defer></script>
   </head>
   <body>
-    <header>
-      <nav class="nav-container">
-        <div class="nav-menu">
-          <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="./calculator.html" class="active">Calculator</a></li>
-            <li>
-              <a href="./rock-paper-scissors.html">Rock-Paper-Scissors</a>
-            </li>
-            <li><a href="./jumping-game.html">Jumping-Game</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
     <!-- Calculator Body -->
     <main>
       <!-- Calculator Screen -->
@@ -50,7 +35,7 @@
           <button type="button" class="globalOp" onclick="deleteInput()">
             <img
               class="grayImage"
-              src="../assets/delete-btn-icon.png"
+              src="delete-btn-icon.png"
               alt="delete button"
               width="10"
             />
@@ -58,7 +43,7 @@
           <button type="button" class="operator" onclick="addOperate('/')">
             <img
               class="whiteImage"
-              src="../assets/divide-btn-icon.png"
+              src="divide-btn-icon.png"
               alt="divide button"
               width="10"
             />
@@ -97,7 +82,9 @@
         <!-- Fifth row buttons container -->
         <div id="fifthRowBtns">
           <button type="button" onclick="addNumber(0)">0</button>
-          <button type="button" class="single" onclick="addDecimal('.')">.</button>
+          <button type="button" class="single" onclick="addDecimal('.')">
+            .
+          </button>
           <button type="button" class="single calcOperator" onclick="operate()">
             =
           </button>

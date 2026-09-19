@@ -1,40 +1,11 @@
-"use strict"; // I am using to deffine some errors
-
-/* 
-TASKS
-
-1. add , subtract , multiply and divide
-2. Create the functions: add() , subtract(), multiply() and divide()
-3. Create the function operate(num1, num2) , then call add(), sybtract(), multiply() or divide()
-4. Html includes buttons for each digit and "Equals"/"clear" button.
-5. Create two screens to display the values
-6. Numbers: 1, 2, 3, 4, 5, 6, 7, 8, 9
-7. Symbols: +, -, *, /, ., =, clear btn and delete btn
-8. Keyboard support
-9. The calculator should not evaluate more than a single pair of numbers at a time
-
-*/
-
-// HTML Elements
+"use strict";
 
 const firstScreen = document.querySelector("#firstScreen");
 const secondScreen = document.querySelector("#secondScreen");
 
-// Variables
-
 let numberOne;
 let numberTwo;
 let symbol;
-
-/* 
-
-Function addNumber(num) => Write a number at the screen 
-
-1. Add a number at the input.value
-2. Declare the variable numberOne
-3. Save the first number and the operate at the Second screen
-
-*/
 
 function addNumber(num) {
   secondScreen.value += num;
@@ -52,41 +23,23 @@ function addNumber(num) {
   }
 }
 
-/* 
-
-Function addOperate(sym) => Write the operator at the screen
-
-1. Add an operator at the input value
-2. Declare the variable symbol
-
-*/
-
 function addOperate(sym) {
-  if (
-    secondScreen.value.includes("-") ||
-    secondScreen.value.includes("+") ||
-    secondScreen.value.includes("*") ||
-    secondScreen.value.includes("/")
-  ) {
+  const current = secondScreen.value;
+  const lastChar = current[current.length - 1];
+
+  if (["-", "+", "*", "/"].includes(lastChar)) {
+    secondScreen.value = current.slice(0, -1) + sym;
+    symbol = sym;
     return;
-  } else if (firstScreen.value.length > 0) {
-    return;
-  } else if (secondScreen.value.length === 0) {
-    return;
+  }
+  if (current.length === 0) return;
+  if (firstScreen.value.length > 0) {
+    operate();
+    if (secondScreen.value === "") return;
   }
   secondScreen.value += sym;
   symbol = sym;
 }
-
-/* 
-
-Function addDecimals(dec) => Insert a decimal
-
-1. Insert a decimal
-2. Check if it has already a decimal
-3. Check if the input is empty to do not allow insert first a decimal
-
-*/
 
 function addDecimal(dec) {
   if (secondScreen.value.includes(".")) {
@@ -98,12 +51,6 @@ function addDecimal(dec) {
   secondScreen.value += dec;
 }
 
-/*  
-
-Function clearScreen() => Delete all the inputs value from the screens
-
-*/
-
 function clearScreen() {
   firstScreen.value = "";
   secondScreen.value = "";
@@ -111,15 +58,6 @@ function clearScreen() {
   let numberTwo = "";
   let symbol = "";
 }
-
-/*  
-
-Function deleteInput() => Delete the last value from the input
-
-1. Deletes the last digit or symbol
-2. Check if you have delete everything from the main screen to change it with the secondary screen
-
-*/
 
 function deleteInput() {
   let del = secondScreen.value.slice(0, -1);
@@ -129,17 +67,6 @@ function deleteInput() {
   }
   return (secondScreen.value = del);
 }
-
-/* 
-
-Function transform() => Transform a number to a deccimal number
-
-1. Checks if the input is empty
-2. Check if the input value is 0
-3. Check if the input has any symbol
-4. Transform method => number / 100
-
-*/
 
 function transform() {
   if (secondScreen.value.length === 0) {
@@ -158,62 +85,44 @@ function transform() {
   return (secondScreen.value = input / 100);
 }
 
-/* 
-
-Functions :
-
-1. Function add(num1, num2) => return num1 + num2 and reset the variables // Result
-2. Function subtract(num1, num2) => return num1 - num2 and reset the variables // Result
-3. Function multiply(num1, num2) => return num1 * num2 and reset the variables // Result
-4. Function divide(num1, num2) => return num1 / num2 and reset the variables // Result
-
-*/
-
 function add(add1, add2) {
   firstScreen.value = "";
   let total = add1 + add2;
   let numberOne = "";
   let numberTwo = "";
   let symbol = "";
-  return (secondScreen.value = total);
+  return (secondScreen.value = total.toFixed(4));
 }
 
 function subtract(sub1, sub2) {
   firstScreen.value = "";
+  let total = sub1 - sub2;
   let numberOne = "";
   let numberTwo = "";
   let symbol = "";
-  return (secondScreen.value = sub1 - sub2);
+  return (secondScreen.value = total.toFixed(4));
 }
 
 function multiply(mul1, mul2) {
   firstScreen.value = "";
+  let totla = mul1 * mul2;
   let numberOne = "";
   let numberTwo = "";
   let symbol = "";
-  return (secondScreen.value = mul1 * mul2);
+  return (secondScreen.value = total.toFixed(4));
 }
 
 function divide(div1, div2) {
   firstScreen.value = "";
+  let total = div1 / div2;
   let numberOne = "";
   let numberTwo = "";
   let symbol = "";
   if (div1 === 0) {
     return (secondScreen.value = "");
   }
-  return (secondScreen.value = div1 / div2);
+  return (secondScreen.value = total.toFixed(4));
 }
-
-/* 
-
-Function operate() => Decide which function will follow to show you the result
-
-1. Takes the variable symbol to decide the function
-2. Transform the string "number" to an actauly number
-3. Check if the process is correct to continue
-
-*/
 
 function operate() {
   if (firstScreen.value.length === 0) {
@@ -233,8 +142,6 @@ function operate() {
     divide(Number(numberOne), Number(numberTwo));
   }
 }
-
-/* KEYBOARD SUPPORT */
 
 document.addEventListener("keydown", function (e) {
   const key = e.key;

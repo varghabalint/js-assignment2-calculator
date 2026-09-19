@@ -15,37 +15,11 @@ html {
 }
 body {
   display: flex;
-  flex-direction: column;
-  gap: 20vh;
-}
-.nav-links {
-  width: 100%;
-  background-color: var(--color-primary);
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
-.nav-links > li {
-  border-bottom: 2px solid rgb(210, 210, 219);
-  width: 100%;
-  text-align: center;
-  padding: 10px 0;
-  transition: 0.6s;
-  cursor: pointer;
-}
-
-.nav-links > li > a {
-  text-decoration: none;
-  color: white;
-  font-size: 1.1rem;
-  padding:3px;
-}
-
-.nav-links > li:hover {
-  background-color: var(--color-primary-light);
-}
 main {
   align-self: center;
   padding: 30px;
