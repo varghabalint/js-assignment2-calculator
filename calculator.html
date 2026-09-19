@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../css/calculator.style.css" />
+    <title>Calculator</title>
+    <script src="../js/common.js" defer></script>
+    <script src="../js/calculator.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav class="nav-container">
+        <div class="nav-menu">
+          <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./calculator.html" class="active">Calculator</a></li>
+            <li>
+              <a href="./rock-paper-scissors.html">Rock-Paper-Scissors</a>
+            </li>
+            <li><a href="./jumping-game.html">Jumping-Game</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Calculator Body -->
+    <main>
+      <!-- Calculator Screen -->
+      <section id="screensContainer">
+        <!-- First screen to save from '12+5' the '12+'-->
+        <label for="firstScreen"></label>
+        <input id="firstScreen" readonly type="text" title="screen" />
+        <!-- Second screen to save from '12+5' the '5'-->
+        <label for="secondScreen"></label>
+        <input
+          id="secondScreen"
+          readonly
+          type="text"
+          title="screen"
+          placeholder="0"
+        />
+      </section>
+      <!-- Calculator main body // Buttons container -->
+      <section id="buttonsContainer">
+        <!-- First row buttons container -->
+        <div id="firstRowBtns">
+          <button type="button" class="globalOp" onclick="clearScreen()">
+            C
+          </button>
+          <button type="button" class="globalOp" onclick="deleteInput()">
+            <img
+              class="grayImage"
+              src="../assets/delete-btn-icon.png"
+              alt="delete button"
+              width="10"
+            />
+          </button>
+          <button type="button" class="operator" onclick="addOperate('/')">
+            <img
+              class="whiteImage"
+              src="../assets/divide-btn-icon.png"
+              alt="divide button"
+              width="10"
+            />
+          </button>
+          <button type="button" class="operator" onclick="addOperate('*')">
+            x
+          </button>
+        </div>
+        <!-- Second row buttons container -->
+        <div id="secondRowBtns">
+          <button type="button" onclick="addNumber(7)">7</button>
+          <button type="button" onclick="addNumber(8)">8</button>
+          <button type="button" onclick="addNumber(9)">9</button>
+          <button type="button" class="operator" onclick="addOperate('-')">
+            -
+          </button>
+        </div>
+        <!-- Third row buttons container -->
+        <div id="thirdRowBtns">
+          <button type="button" onclick="addNumber(4)">4</button>
+          <button type="button" onclick="addNumber(5)">5</button>
+          <button type="button" onclick="addNumber(6)">6</button>
+          <button type="button" class="operator" onclick="addOperate('+')">
+            +
+          </button>
+        </div>
+        <!-- Fourth row buttons container -->
+        <div id="fourthRowBtns">
+          <button type="button" onclick="addNumber(1)">1</button>
+          <button type="button" onclick="addNumber(2)">2</button>
+          <button type="button" onclick="addNumber(3)">3</button>
+          <button type="button" class="globalOp" onclick="transform()">
+            %
+          </button>
+        </div>
+        <!-- Fifth row buttons container -->
+        <div id="fifthRowBtns">
+          <button type="button" onclick="addNumber(0)">0</button>
+          <button type="button" class="single" onclick="addDecimal('.')">.</button>
+          <button type="button" class="single calcOperator" onclick="operate()">
+            =
+          </button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
